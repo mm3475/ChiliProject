@@ -1,0 +1,141 @@
+#first time using turtle 
+#Eventually i will make the code more efficient, this was a first try
+
+import turtle
+#create turtle screen orange
+screen= turtle.Screen()
+screen.bgcolor('orange')
+chili= turtle.Turtle()
+chili.speed(20)
+chili.penup()
+
+#cat ears
+def cat_ear1():
+    chili.goto(-50, 0)
+    chili.pendown()
+    chili.setheading(60)
+
+    for i in range(2):
+        for x in range(10):
+            chili.write("Chili", align="center", font=("Garamond", 12, "normal"))
+            chili.penup()
+            chili.forward(10)
+        chili.left(-120)
+
+def cat_ear2():
+    chili.goto(50, 0)
+    chili.pendown()
+    chili.setheading(60)
+
+    for i in range(2):
+        for x in range(10):
+            chili.write("Chili", align="center", font=("Garamond", 12, "normal"))
+            chili.penup()
+            chili.forward(10)
+        chili.left(-120)
+cat_ear1()
+cat_ear2()
+#cat eyes
+def cat_eyes(radius, x, y):
+    chili.penup()
+    chili.goto(x, y - radius)
+    chili.pendown()
+
+    for i in range(36):
+        chili.pendown()
+        chili.write("Chili", align="left", font=("Garamond", 12, "normal"))
+        chili.penup()
+        chili.forward(2 * 3.14159 * radius / 13)  # Move forward along the circle's edge
+        chili.left(20)  # Turn to create the next position
+# Draw circles with "Chili"
+cat_eyes(20, -40, 10)  #
+cat_eyes(20, 70, 10)
+
+
+def cat_little_nose():
+    chili.goto(25, -80)
+    chili.pendown()
+    chili.setheading(60)
+
+    for i in range(6):
+        for x in range(5):
+            chili.write("Chili", align="center", font=("Garamond", 6, "normal"))
+            chili.penup()
+            chili.forward(5)
+        chili.left(120)
+
+cat_little_nose()
+
+def cat_whiskers1():
+    chili.goto(50,-100)
+    chili.pendown()
+    chili.setheading(0)
+
+    for i in [20,-5,-30]:  ##these are the angles
+        chili.setheading(i)
+        chili.penup()
+        chili.goto(50, -100)
+        chili.setheading(i)
+        chili.pendown()
+
+        for x in range(4):
+            chili.write("Chili", align="center", font=("Garamond", 12, "normal"))
+            chili.penup()
+            chili.forward(30)
+
+def cat_whiskers2():
+    chili.goto(50,-100)
+    chili.pendown()
+    chili.setheading(180)
+
+    for i in [15,-5,-30]:  ##these are the angles
+        chili.setheading(i)
+        chili.penup()
+        chili.goto(-5, -105)
+        chili.setheading(i)
+        chili.pendown()
+
+        for x in range(4):
+            chili.write("Chili", align="center", font=("Garamond", 12, "normal"))
+            chili.penup()
+            chili.forward(-30)
+cat_whiskers1()
+cat_whiskers2()
+
+
+def cat_smile(radius, x, y):
+    chili.penup()
+    chili.goto(x, y - radius)
+    chili.pendown()
+    chili.setheading(-60)
+
+    for i in range(13):
+        chili.pendown()
+        chili.write("Chili", align="left", font=("Garamond", 7, "normal"))
+        chili.penup()
+        chili.forward(2 * 3.14159 * radius / 36)
+        chili.left(-20)  
+
+#this is wrong, I want to mirror it without creating a new function. 
+#to fix
+
+def smile_mirror(radius, x, y):
+    chili.penup()
+    chili.goto(x, y - radius)
+    chili.pendown()
+    chili.setheading(-120)
+
+    for i in range(13):
+        chili.pendown()
+        chili.write("Chili", align="left", font=("Garamond", 7, "normal"))
+        chili.penup()
+        chili.forward(2 * 3.14159 * radius / 36)
+        chili.left(20)
+
+# Draw the whiskers on both sides
+cat_smile(25, 45, -65)  # Right side whisker
+smile_mirror(25, -5, -65)
+
+chili.hideturtle()
+turtle.done()
+
